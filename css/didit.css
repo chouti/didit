@@ -1,0 +1,63 @@
+/*==========================
+	Base color
+	orange:			#E4725F
+	light:			#FBF3E0
+	light brown:	#D9CAA8
+	dark:			#3C3935
+	dark brown:		#CDB09A
+==========================*/
+
+body {
+	background: #3C3935 url(/images/bg.gif) repeat;
+}
+
+#title {
+	background: #FBF3E0;
+	width: 600px;
+	margin: auto;
+	border-bottom: 2px dashed #E4725F;
+	border-left: 2px dashed #E4725F;
+	border-right: 2px dashed #E4725F;
+	-webkit-box-shadow: 0 0 1px 1px #D9CAA8;
+}
+
+#title h1 {
+	color: #000;
+	text-align: center;
+	font-size: 2.5em;
+	font-weight: bold;
+	font-family: 'Kreon', arial, serif;
+}
+
+#intro {
+	background: #fff;
+	width: 100%;
+	height: 400px;
+	margin: 50px auto 0;
+}
+
+#intro-up {
+	height: 70%;
+	width: 100%;
+	position: relative;
+	float: left;
+	overflow: hidden;
+	background: #d5e8ec;
+}
+
+#intro-down {
+	height: 30%;
+	width: 100%;
+	position: relative;
+	float: right;
+	font-family: 'Ubuntu', arial, serif;
+	font-size: 1.3em;
+	-webkit-box-shadow: 1px 0 5px #0c0c0c;
+	background: #fafafa;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.about {
+	margin: 2px 10px;
+}
