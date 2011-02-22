@@ -58,7 +58,25 @@ function ClearInput(){
 	})
 }
 
+/* Turn on traffic light */
+function TurnGreen(){
+	if($('li[class="selected"]'))
+	$('li[id*="nav"]').click(function(){
+		if($(this).attr('class')=='not_selected'){
+			$('li[class="selected"]').attr({
+				class:'not_selected',
+				state:'off'
+				});
+			$(this).attr({
+				class: 'selected',
+				state: 'on'
+			});
+		}
+	});
+}
+
 $(document).ready(function(){
 	CheckToken();
 	ClearInput();
+	TurnGreen();
 })
