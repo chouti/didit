@@ -12,7 +12,7 @@ body {
 }
 
 #title {
-	background: #FBF3E0;
+	background: #CDB09A;
 	width: 600px;
 	margin: auto;
 	border-bottom: 2px dashed #E4725F;
@@ -60,4 +60,76 @@ body {
 
 .about {
 	margin: 2px 10px;
+}
+
+.main {
+	background: #FBF3E0;
+	font-family: 'Ubuntu', arial, serif;
+}
+
+.secondary {
+	background:#E4725F;
+	font-family: 'Ubuntu', arial, serif;
+	margin-left: 10px;
+}
+
+ul.sidenav {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: 'Ubuntu',arial,serif;
+	background: #CA0700;
+	border-bottom: 1px solid #5C1E1B;
+	border-top: 1px solid #FF4D4D;
+}
+
+ul.sidenav li a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	text-align: left;
+	width: auto;
+	padding: 5px 5px 5px 15px;
+	border-bottom: 1px solid #5C1E1B;
+	border-top: 1px solid #FF4D4D;
+}
+
+ul.sidenav li {
+	margin: 0 1em;
+}
+
+li.selected a {
+	background: url(/images/green.png) no-repeat 240px 7px;
+}
+
+li.not_selected a {
+	background: url(/images/red.png) no-repeat 240px 7px;
+}
+
+#new_task input[type="text"] {
+	width: 500px;
+	padding: 5px;
+	font-size: 15px;
+	text-shadow: 0px 1px 0px #fff;
+	outline: none;
+	background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbe), to(#ffffff));
+	-webkit-border-radius: 3px;
+	border-radius: 3px
+	border: 1px solid #717171;
+	-webkit-box-shadow: 1px 1px 0px #efefef;
+	box-shadow: 1px 1px 0px #efefef;
+}
+
+#new_task input[type="submit"]{
+	margin: 10px;
+}
+
+#new_task input:focus {
+	-webkit-box-shadow: 0px 0px 5px #007eff;
+	box-shadow: 0px 0px 5px #007eff;
+}
+
+#input {
+	margin: 10px 5px;
 }

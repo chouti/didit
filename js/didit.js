@@ -48,6 +48,17 @@ function CheckToken(){
 	}
 }
 
+/* Clear input text field place holder with on focus */
+function ClearInput(){
+	$('input[name="did_title"]').focus(function(){
+		$(this).attr('value', "");
+	});
+	$('input[name="did_title"]').blur(function(){
+		$(this).attr('value', "What did you do today?")
+	})
+}
+
 $(document).ready(function(){
 	CheckToken();
+	ClearInput();
 })
