@@ -96,10 +96,20 @@ function TurnGreen(){
 var today_title = new Date.today().setTimeToNow();
 var today = new Date.today().toString("yyyy-MM-dd");
 var yesterday = new Date.today().addDays(-1).toString("yyyy-MM-dd");
+var last_sunday = new Date.last().sunday();
+var sunday_string = new Date.last().sunday().toString("yyyy-MM-dd");
+var week_today = new Date.today();
+var last_saturday = new Date.last().saturday();
+var saturday_string = new Date.last().saturday().toString("yyyy-MM-dd");
+var week_before = new Date.last().sunday().addDays(-7);
+var week_before_string = new Date.last().sunday().addDays(-7).toString("yyyy-MM-dd");
+var month_start = new Date.today().moveToFirstDayOfMonth();
+var month_start_string = new Date.today().moveToFirstDayOfMonth().toString("yyyy-MM-dd");
 
 /* Switch date ranges */
 function ShowToday(){
 	$('#today').empty();
+	$('#input').show();
 	$('#today').show();
 	$('#yesterday').hide();
 	$('#thisweek').hide();
@@ -141,6 +151,7 @@ function GetToday(){
 
 function ShowYesterday(){
 	$('#yesterday').empty();
+	$('#input').hide();
 	$('#today').hide();
 	$('#yesterday').show();
 	$('#thisweek').hide();
@@ -180,27 +191,129 @@ function GetYesterday(){
 }
 
 function ShowThisweek(){
+	$('#thisweek').empty();
+	$('#input').show();
 	$('#today').hide();
 	$('#yesterday').hide();
 	$('#thisweek').show();
 	$('#lastweek').hide();
 	$('#thismonth').hide();
+	$('#thisweek').append('<h3>from '+sunday_string+' to '+today+'</h3>');
+	GetThisweek();
+}
+
+function GetThisweek(){
+	$.get(task_url, function(data){
+		if(data.entries.length!=null){
+			var items=data.entries;
+			for (var i=0; i<items.length; i++){
+				var tags=items[i].tags;
+				if(tags!=[]){
+					for (var t=0; t<tags.length; t++){
+						if(tags[t]=='didit'){
+							//console.log(items[i].title)
+							if(items[i].completed!=null&&
+								items[i].trashed==null){
+									var completed_date = items[i].completed.split(' ')[0];
+									//console.log(completed_date)
+									var newdate = Date.parse(completed_date);
+									if(newdate.between(last_sunday,week_today)){
+										$('#thisweek').append('<li name="thisweek_list">'+items[i].title+'</li>');
+									}
+								}
+						}
+					}
+				}
+			}
+		}
+		if ($('li[name="thisweek_list"]').length==0){
+			$('#thisweek').append('<p class="center">No archivements for this week</p>');
+		}
+	});
 }
 
 function ShowLastweek(){
+	$('#lastweek').empty();
+	$('#input').hide();
 	$('#today').hide();
 	$('#yesterday').hide();
 	$('#thisweek').hide();
 	$('#lastweek').show();
 	$('#thismonth').hide();
+	$('#lastweek').append('<h3>from '+week_before_string+' to '+saturday_string+'</h3>');
+	GetLastweek();
+}
+
+function GetLastweek(){
+	$.get(task_url, function(data){
+		if(data.entries.length!=null){
+			var items=data.entries;
+			for (var i=0; i<items.length; i++){
+				var tags=items[i].tags;
+				if(tags!=[]){
+					for (var t=0; t<tags.length; t++){
+						if(tags[t]=='didit'){
+							//console.log(items[i].title)
+							if(items[i].completed!=null&&
+								items[i].trashed==null){
+									var completed_date = items[i].completed.split(' ')[0];
+									//console.log(completed_date)
+									var newdate = Date.parse(completed_date);
+									if(newdate.between(week_before,last_saturday)){
+										$('#lastweek').append('<li name="lastweek_list">'+items[i].title+'</li>');
+									}
+								}
+						}
+					}
+				}
+			}
+		}
+		if ($('li[name="lastweek_list"]').length==0){
+			$('#lastweek').append('<p class="center">No archivements for last week</p>');
+		}
+	});
 }
 
 function ShowThismonth(){
+	$('#thismonth').empty();
+	$('#input').show();
 	$('#today').hide();
 	$('#yesterday').hide();
 	$('#thisweek').hide();
 	$('#lastweek').hide();
 	$('#thismonth').show();
+	$('#thismonth').append('<h3>from '+month_start_string+' to '+today+'</h3>');
+	GetThismonth();
+}
+
+function GetThismonth(){
+	$.get(task_url, function(data){
+		if(data.entries.length!=null){
+			var items=data.entries;
+			for (var i=0; i<items.length; i++){
+				var tags=items[i].tags;
+				if(tags!=[]){
+					for (var t=0; t<tags.length; t++){
+						if(tags[t]=='didit'){
+							//console.log(items[i].title)
+							if(items[i].completed!=null&&
+								items[i].trashed==null){
+									var completed_date = items[i].completed.split(' ')[0];
+									//console.log(completed_date)
+									var newdate = Date.parse(completed_date);
+									if(newdate.between(month_start,week_today)){
+										$('#thismonth').append('<li name="thismonth_list">'+items[i].title+'</li>');
+									}
+								}
+						}
+					}
+				}
+			}
+		}
+		if ($('li[name="thismonth_list"]').length==0){
+			$('#thismonth').append('<p class="center">No archivements for this month</p>');
+		}
+	});
 }
 
 /* Switch Cases from different date range */
