@@ -69,9 +69,6 @@ function ClearInput(){
 	$('input[name="did_title"]').focus(function(){
 		$(this).attr('value', "");
 	});
-	$('input[name="did_title"]').blur(function(){
-		$(this).attr('value', "What did you do today?")
-	})
 }
 
 /* Turn on traffic light */
@@ -340,9 +337,20 @@ function SwitchCases(){
 			ShowToday();
 	}
 }
+
+/*Add tasks to list*/
+function AddTasks(){
+	var title = $("input[name='did_title']").val();
+	task_data = JSON.stringify({'title':title,'start_at':today,'completed':today,'tags':['didit']});
+	$.post(task_url,task_data);
+}
+
 $(document).ready(function(){
 	CheckToken();
 	ClearInput();
 	TurnGreen();
 	ShowToday();
+	$('#new_task').submit(function(){
+		AddTasks();
+	})
 })
