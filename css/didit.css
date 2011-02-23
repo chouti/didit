@@ -109,6 +109,7 @@ li.not_selected a {
 
 #new_task input[type="text"] {
 	width: 500px;
+	height: 30px;
 	padding: 5px;
 	font-size: 15px;
 	text-shadow: 0px 1px 0px #fff;
@@ -132,4 +133,9 @@ li.not_selected a {
 
 #input {
 	margin: 10px 5px;
+}
+
+#tasks {
+	margin: 5px auto;
+	width: 550px;
 }

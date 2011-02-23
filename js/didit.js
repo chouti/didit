@@ -1,6 +1,22 @@
 /*========================================================
 	This is the main javascript file for Did it.
 ========================================================*/
+/*Common URL*/
+var task_url='https://openapi.doit.im/v1/tasks'
+
+var addHeaders = function(token){
+	var token=localStorage.user_token;
+	return "OAuth "+token;
+}
+
+$.ajaxSetup({
+	dataType: 'json',
+	beforeSend: function(req){
+		req.setRequestHeader('Authorization', addHeaders())
+	},
+	contentType: "application/json; charset=utf-8"
+});
+
 
 /* Authoriation function */
 function GetAuth(){
@@ -72,11 +88,148 @@ function TurnGreen(){
 				state: 'on'
 			});
 		}
+		SwitchCases();
 	});
 }
 
+/*Date JS Module*/
+var today_title = new Date.today().setTimeToNow();
+var today = new Date.today().toString("yyyy-MM-dd");
+var yesterday = new Date.today().addDays(-1).toString("yyyy-MM-dd");
+
+/* Switch date ranges */
+function ShowToday(){
+	$('#today').empty();
+	$('#today').show();
+	$('#yesterday').hide();
+	$('#thisweek').hide();
+	$('#lastweek').hide();
+	$('#thismonth').hide();
+	$('#today').append('<h3>'+today_title+'</h3>');
+	GetToday();
+}
+
+/*Get Today's task list*/
+function GetToday(){
+	$.get(task_url, function(data){
+		if(data.entries.length!=null){
+			var items=data.entries;
+			for (var i=0; i<items.length; i++){
+				var tags=items[i].tags;
+				if(tags!=[]){
+					for (var t=0; t<tags.length; t++){
+						if(tags[t]=='didit'){
+							//console.log(items[i].title)
+							if(items[i].completed!=null&&
+								items[i].trashed==null){
+									var completed_date = items[i].completed.split(' ')[0];
+									//console.log(completed_date)
+									if(completed_date==today){
+										$('#today').append('<li name="today_list">'+items[i].title+'</li>');
+									}
+								}
+						}
+					}
+				}
+			}
+		}
+		if ($('li[name="today_list"]').length==0){
+			$('#today').append('<p class="center">No archivements for today</p>');
+		}
+	});
+}
+
+function ShowYesterday(){
+	$('#yesterday').empty();
+	$('#today').hide();
+	$('#yesterday').show();
+	$('#thisweek').hide();
+	$('#lastweek').hide();
+	$('#thismonth').hide();
+	$('#yesterday').append('<h3>'+yesterday+'</h3>');
+	GetYesterday();
+}
+
+function GetYesterday(){
+	$.get(task_url, function(data){
+		if(data.entries.length!=null){
+			var items=data.entries;
+			for (var i=0; i<items.length; i++){
+				var tags=items[i].tags;
+				if(tags!=[]){
+					for (var t=0; t<tags.length; t++){
+						if(tags[t]=='didit'){
+							//console.log(items[i].title)
+							if(items[i].completed!=null&&
+								items[i].trashed==null){
+									var completed_date = items[i].completed.split(' ')[0];
+									//console.log(completed_date)
+									if(completed_date==yesterday){
+										$('#yesterday').append('<li name="yesterday_list">'+items[i].title+'</li>');
+									}
+								}
+						}
+					}
+				}
+			}
+		}
+		if ($('li[name="yesterday_list"]').length==0){
+			$('#yesterday').append('<p class="center">No archivements for yesterday</p>');
+		}
+	});
+}
+
+function ShowThisweek(){
+	$('#today').hide();
+	$('#yesterday').hide();
+	$('#thisweek').show();
+	$('#lastweek').hide();
+	$('#thismonth').hide();
+}
+
+function ShowLastweek(){
+	$('#today').hide();
+	$('#yesterday').hide();
+	$('#thisweek').hide();
+	$('#lastweek').show();
+	$('#thismonth').hide();
+}
+
+function ShowThismonth(){
+	$('#today').hide();
+	$('#yesterday').hide();
+	$('#thisweek').hide();
+	$('#lastweek').hide();
+	$('#thismonth').show();
+}
+
+/* Switch Cases from different date range */
+function SwitchCases(){
+	var dateRange = $('li[class="selected"]').attr('id');
+	switch(dateRange)
+	{
+		case 'nav1':
+			ShowToday();
+			break;
+		case 'nav2':
+			ShowYesterday();
+			break;
+		case 'nav3':
+			ShowThisweek();
+			break;
+		case 'nav4':
+			ShowLastweek();
+			break;
+		case 'nav5':
+			ShowThismonth();
+			break;
+		default:
+			ShowToday();
+	}
+}
 $(document).ready(function(){
 	CheckToken();
 	ClearInput();
 	TurnGreen();
+	ShowToday();
 })
