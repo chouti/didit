@@ -105,14 +105,15 @@ var month_start_string = new Date.today().moveToFirstDayOfMonth().toString("yyyy
 
 /* Switch date ranges */
 function ShowToday(){
-	$('#today').empty();
+	$('#todayul').empty();
+	$('#today_head').empty();
 	$('#input').show();
 	$('#today').show();
 	$('#yesterday').hide();
 	$('#thisweek').hide();
 	$('#lastweek').hide();
 	$('#thismonth').hide();
-	$('#today').append('<h3>'+today_title+'</h3>');
+	$('#today_head').append('<h3>'+today_title+'</h3>');
 	GetToday();
 }
 
@@ -132,7 +133,7 @@ function GetToday(){
 									var completed_date = items[i].completed.split(' ')[0];
 									//console.log(completed_date)
 									if(completed_date==today){
-										$('#today').append('<li name="today_list">'+items[i].title+'</li>');
+										$('#todayul').append('<li name="today_list">'+items[i].title+'</li>');
 									}
 								}
 						}
@@ -141,20 +142,21 @@ function GetToday(){
 			}
 		}
 		if ($('li[name="today_list"]').length==0){
-			$('#today').append('<p class="center">No archivements for today</p>');
+			$('#todayul').append('<p class="center">No archivements for today</p>');
 		}
 	});
 }
 
 function ShowYesterday(){
-	$('#yesterday').empty();
+	$('#yesterdayul').empty();
+	$('#yesterday_head').empty();
 	$('#input').hide();
 	$('#today').hide();
 	$('#yesterday').show();
 	$('#thisweek').hide();
 	$('#lastweek').hide();
 	$('#thismonth').hide();
-	$('#yesterday').append('<h3>'+yesterday+'</h3>');
+	$('#yesterday_head').append('<h3>'+yesterday+'</h3>');
 	GetYesterday();
 }
 
@@ -173,7 +175,7 @@ function GetYesterday(){
 									var completed_date = items[i].completed.split(' ')[0];
 									//console.log(completed_date)
 									if(completed_date==yesterday){
-										$('#yesterday').append('<li name="yesterday_list">'+items[i].title+'</li>');
+										$('#yesterdayul').append('<li name="yesterday_list">'+items[i].title+'</li>');
 									}
 								}
 						}
@@ -182,20 +184,21 @@ function GetYesterday(){
 			}
 		}
 		if ($('li[name="yesterday_list"]').length==0){
-			$('#yesterday').append('<p class="center">No archivements for yesterday</p>');
+			$('#yesterdayul').append('<p class="center">No archivements for yesterday</p>');
 		}
 	});
 }
 
 function ShowThisweek(){
-	$('#thisweek').empty();
+	$('#thisweekul').empty();
+	$('#thisweek_head').empty();
 	$('#input').show();
 	$('#today').hide();
 	$('#yesterday').hide();
 	$('#thisweek').show();
 	$('#lastweek').hide();
 	$('#thismonth').hide();
-	$('#thisweek').append('<h3>from '+sunday_string+' to '+today+'</h3>');
+	$('#thisweek_head').append('<h3>from '+sunday_string+' to '+today+'</h3>');
 	GetThisweek();
 }
 
@@ -215,7 +218,7 @@ function GetThisweek(){
 									//console.log(completed_date)
 									var newdate = Date.parse(completed_date);
 									if(newdate.between(last_sunday,week_today)){
-										$('#thisweek').append('<li name="thisweek_list">'+items[i].title+'</li>');
+										$('#thisweekul').append('<li name="thisweek_list">'+items[i].title+'</li>');
 									}
 								}
 						}
@@ -224,20 +227,21 @@ function GetThisweek(){
 			}
 		}
 		if ($('li[name="thisweek_list"]').length==0){
-			$('#thisweek').append('<p class="center">No archivements for this week</p>');
+			$('#thisweekul').append('<p class="center">No archivements for this week</p>');
 		}
 	});
 }
 
 function ShowLastweek(){
-	$('#lastweek').empty();
+	$('#lastweekul').empty();
+	$('#lastweek_head').empty();
 	$('#input').hide();
 	$('#today').hide();
 	$('#yesterday').hide();
 	$('#thisweek').hide();
 	$('#lastweek').show();
 	$('#thismonth').hide();
-	$('#lastweek').append('<h3>from '+week_before_string+' to '+saturday_string+'</h3>');
+	$('#lastweek_head').append('<h3>from '+week_before_string+' to '+saturday_string+'</h3>');
 	GetLastweek();
 }
 
@@ -257,7 +261,7 @@ function GetLastweek(){
 									//console.log(completed_date)
 									var newdate = Date.parse(completed_date);
 									if(newdate.between(week_before,last_saturday)){
-										$('#lastweek').append('<li name="lastweek_list">'+items[i].title+'</li>');
+										$('#lastweekul').append('<li name="lastweek_list">'+items[i].title+'</li>');
 									}
 								}
 						}
@@ -266,20 +270,21 @@ function GetLastweek(){
 			}
 		}
 		if ($('li[name="lastweek_list"]').length==0){
-			$('#lastweek').append('<p class="center">No archivements for last week</p>');
+			$('#lastweekul').append('<p class="center">No archivements for last week</p>');
 		}
 	});
 }
 
 function ShowThismonth(){
-	$('#thismonth').empty();
+	$('#thismonthul').empty();
+	$('#thismonth_head').empty();
 	$('#input').show();
 	$('#today').hide();
 	$('#yesterday').hide();
 	$('#thisweek').hide();
 	$('#lastweek').hide();
 	$('#thismonth').show();
-	$('#thismonth').append('<h3>from '+month_start_string+' to '+today+'</h3>');
+	$('#thismonth_head').append('<h3>from '+month_start_string+' to '+today+'</h3>');
 	GetThismonth();
 }
 
@@ -299,7 +304,7 @@ function GetThismonth(){
 									//console.log(completed_date)
 									var newdate = Date.parse(completed_date);
 									if(newdate.between(month_start,week_today)){
-										$('#thismonth').append('<li name="thismonth_list">'+items[i].title+'</li>');
+										$('#thismonthul').append('<li name="thismonth_list">'+items[i].title+'</li>');
 									}
 								}
 						}
@@ -308,7 +313,7 @@ function GetThismonth(){
 			}
 		}
 		if ($('li[name="thismonth_list"]').length==0){
-			$('#thismonth').append('<p class="center">No archivements for this month</p>');
+			$('#thismonthul').append('<p class="center">No archivements for this month</p>');
 		}
 	});
 }

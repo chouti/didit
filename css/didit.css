@@ -139,3 +139,22 @@ li.not_selected a {
 	margin: 5px auto;
 	width: 550px;
 }
+
+#tasks ul {
+	margin: 30px auto;
+}
+
+#tasks li {
+	margin: 0;
+	height: 50px;
+	font-family: 'Ubuntu', arial, serif;
+	list-style:none;
+	border-bottom: 1px dashed #999;
+	line-height: 3em;
+	font-size: 2em;
+}
+
+#tasks ul p{
+	font-size: 2em;
+	font-weight: bold;
+}
