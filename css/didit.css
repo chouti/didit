@@ -68,7 +68,7 @@ body {
 }
 
 .secondary {
-	background:#E4725F;
+	background:	#3C3935;
 	font-family: 'Ubuntu', arial, serif;
 	margin-left: 10px;
 }
@@ -160,10 +160,27 @@ li.not_selected a {
 }
 
 #profile {
+	margin: 0;
+	padding: 0;
 	width: 100%;
-	height: 80px;
+	height: 82px;
+	-webkit-box-shadow: 0 0 3px #CA0700;
 }
 
 #gravatar {
+	margin: 0;
+	padding: 0;
+	width: 80px;
+	height:80px;
+	border: 1px solid #000;
+}
+
+#welcome {
+	margin: 10px 0.5em 0 0;
+	width: 185px;
+	color: #fff;
+}
+
+#welcome p {
 	margin: 0;
 }

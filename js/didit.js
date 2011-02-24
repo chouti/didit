@@ -45,6 +45,7 @@ function GetAuth(){
 								$('#intro-up').hide();
 								$('#intro-down').hide();
 								$('#container').show();
+								ShowToday();
 							})
 						}
 				});
@@ -57,6 +58,10 @@ function GetAuth(){
 function CheckToken(){
 	if(localStorage.user_token==undefined){
 		GetAuth();
+		$('#intro').show();
+		$('#intro-up').show();
+		$('#intro-down').show();
+		$('#container').hide();
 	} else {
 		$('#intro').hide();
 		$('#intro-up').hide();
@@ -356,11 +361,20 @@ function AddTasks(){
 function GetProfile(){
 	$.get(user_url, function(data){
 		var email=data.remind_email;
+		var username=data.account;
 		var hash= MD5(jQuery.trim(email).toLowerCase());
 		var gravatar_url='http://www.gravatar.com/avatar/'+hash+'?s=80&d=mm';
 		$('#gravatar').append("<img src='"+gravatar_url+"' />");
+		$('#welcome').append("<p>Welecome"+username+".<br />Nice to see you again.</p><p><a href='#' id='logout'>Logout</a>"+"  "+"||"+"  "+"<a href='#' id='help'>Help?</a></p>")
+		$('#logout').click(function(){
+			localStorage.clear();
+			console.log(localStorage.user_token)
+			CheckToken();
+		});
 	})
 }
+
+
 
 
 $(document).ready(function(){
@@ -370,5 +384,5 @@ $(document).ready(function(){
 	ShowToday();
 	$('#new_task').submit(function(){
 		AddTasks();
-	})
+	});
 })
