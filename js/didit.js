@@ -3,6 +3,7 @@
 ========================================================*/
 /*Common URL*/
 var task_url='https://openapi.doit.im/v1/tasks'
+var user_url='https://openapi.doit.im/v1/settings'
 
 var addHeaders = function(token){
 	var token=localStorage.user_token;
@@ -61,6 +62,7 @@ function CheckToken(){
 		$('#intro-up').hide();
 		$('#intro-down').hide();
 		$('#container').show();
+		GetProfile();
 	}
 }
 
@@ -349,6 +351,17 @@ function AddTasks(){
 	task_data = JSON.stringify({'title':title,'start_at':today,'completed':today,'tags':['didit']});
 	$.post(task_url,task_data);
 }
+
+/*Get User profile*/
+function GetProfile(){
+	$.get(user_url, function(data){
+		var email=data.remind_email;
+		var hash= MD5(jQuery.trim(email).toLowerCase());
+		var gravatar_url='http://www.gravatar.com/avatar/'+hash+'?s=80&d=mm';
+		$('#gravatar').append("<img src='"+gravatar_url+"' />");
+	})
+}
+
 
 $(document).ready(function(){
 	CheckToken();
