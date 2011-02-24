@@ -46,6 +46,7 @@ function GetAuth(){
 								$('#intro-down').hide();
 								$('#container').show();
 								ShowToday();
+								GetProfile();
 							})
 						}
 				});
@@ -364,6 +365,8 @@ function GetProfile(){
 		var username=data.account;
 		var hash= MD5(jQuery.trim(email).toLowerCase());
 		var gravatar_url='http://www.gravatar.com/avatar/'+hash+'?s=80&d=mm';
+		$('#gravater').empty();
+		$('#welcome').empty();
 		$('#gravatar').append("<img src='"+gravatar_url+"' />");
 		$('#welcome').append("<p>Welecome"+username+".<br />Nice to see you again.</p><p><a href='#' id='logout'>Logout</a>"+"  "+"||"+"  "+"<a href='#' id='help'>Help?</a></p>")
 		$('#logout').click(function(){
@@ -382,7 +385,9 @@ $(document).ready(function(){
 	ClearInput();
 	TurnGreen();
 	ShowToday();
-	$('#new_task').submit(function(){
-		AddTasks();
-	});
+	$('#add_task').keydown(function(event){
+		if(event.keyCode==13){
+			AddTasks();
+		}
+	})
 })

@@ -22,7 +22,8 @@ body {
 }
 
 #title h1 {
-	color: #000;
+	color: #fff;
+	text-shadow: 0 0 2px #999;
 	text-align: center;
 	font-size: 2.5em;
 	font-weight: bold;
@@ -151,7 +152,7 @@ li.not_selected a {
 	list-style:none;
 	border-bottom: 1px dashed #999;
 	line-height: 3em;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 #tasks ul p{
