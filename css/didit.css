@@ -155,6 +155,10 @@ li.not_selected a {
 	font-size: 1.5em;
 }
 
+#tasks img {
+	margin-top: 1.5em;
+}
+
 #tasks ul p{
 	font-size: 2em;
 	font-weight: bold;
