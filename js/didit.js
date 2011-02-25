@@ -142,15 +142,15 @@ function GetToday(){
 									//console.log(completed_date)
 									if(completed_date==today){
 										$('#todayul').append('<li class="task_main" name="today_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" id="'+items[i].id+'" src="/images/delete.png" /></li>');
-										
 									}
 								}
 						}
 					}
 				}
 			}
+			DelTasks();
 		}
-		if ($('li[name="today_list"]').length==0){
+		if ($('li[name*="_list"]:visible').length==0){
 			$('#todayul').append('<p class="center">No achievements for today</p>');
 		}
 	});
@@ -191,8 +191,9 @@ function GetYesterday(){
 					}
 				}
 			}
+			DelTasks();
 		}
-		if ($('li[name="yesterday_list"]').length==0){
+		if ($('li[name*="_list"]:visible').length==0){
 			$('#yesterdayul').append('<p class="center">No achievements for yesterday</p>');
 		}
 	});
@@ -234,8 +235,9 @@ function GetThisweek(){
 					}
 				}
 			}
+			DelTasks();
 		}
-		if ($('li[name="thisweek_list"]').length==0){
+		if ($('li[name*="_list"]:visible').length==0){
 			$('#thisweekul').append('<p class="center">No achievements for this week</p>');
 		}
 	});
@@ -277,8 +279,9 @@ function GetLastweek(){
 					}
 				}
 			}
+			DelTasks();
 		}
-		if ($('li[name="lastweek_list"]').length==0){
+		if ($('li[name*="_list"]:visible').length==0){
 			$('#lastweekul').append('<p class="center">No achievements for last week</p>');
 		}
 	});
@@ -320,8 +323,9 @@ function GetThismonth(){
 					}
 				}
 			}
+			DelTasks();
 		}
-		if ($('li[name="thismonth_list"]').length==0){
+		if ($('li[name*="_list"]:visible').length==0){
 			$('#thismonthul').append('<p class="center">No achievements for this month</p>');
 		}
 	});
@@ -378,8 +382,37 @@ function GetProfile(){
 	})
 }
 
+/*Delete tasks*/
+function DelTasks(){
+	$('img[name="delete"]').click(function(){
+		var task_id=$(this).attr('id');
+		//console.log(task_id);
+		DelTask(task_id);
+		$(this).parent('li').slideUp(function(){
+			if($('li[name*="_list"]:visible').length==0){
+				SwitchCases();
+			}
+		});
+	});
+}
 
-
+function DelTask(task_id){
+	$.get(task_url, function(data){
+	for(var i=0; i<data.entries.length; i++){
+		if(data.entries[i].id==task_id){
+		 var origin = data.entries[i];
+		 origin.deleted=week_today;
+		 var updated=JSON.stringify(origin);
+		 //console.log(updated);
+		 $.ajax({
+		 	type: "PUT",
+		 	url: task_url,
+			data: updated
+		 });
+		}
+	}
+	});
+}
 
 
 $(document).ready(function(){
@@ -391,5 +424,5 @@ $(document).ready(function(){
 		if(event.keyCode==13){
 			AddTasks();
 		}
-	})
+	});
 })
