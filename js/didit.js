@@ -141,7 +141,7 @@ function GetToday(){
 									var completed_date = items[i].completed.split(' ')[0];
 									//console.log(completed_date)
 									if(completed_date==today){
-										$('#todayul').append('<li class="task_main" name="today_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" src="/images/delete.png" /></li>');
+										$('#todayul').append('<li class="task_main" name="today_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" id="'+items[i].id+'" src="/images/delete.png" /></li>');
 										
 									}
 								}
@@ -184,7 +184,7 @@ function GetYesterday(){
 									var completed_date = items[i].completed.split(' ')[0];
 									//console.log(completed_date)
 									if(completed_date==yesterday){
-										$('#yesterdayul').append('<li class="task_main" name="yesterday_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" src="/images/delete.png" /></li>');
+										$('#yesterdayul').append('<li class="task_main" name="yesterday_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" id="'+items[i].id+'" src="/images/delete.png" /></li>');
 									}
 								}
 						}
@@ -227,7 +227,7 @@ function GetThisweek(){
 									//console.log(completed_date)
 									var newdate = Date.parse(completed_date);
 									if(newdate.between(last_sunday,week_today)){
-										$('#thisweekul').append('<li class="task_main" name="thisweek_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" src="/images/delete.png" /></li>');
+										$('#thisweekul').append('<li class="task_main" name="thisweek_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" id="'+items[i].id+'" src="/images/delete.png" /></li>');
 									}
 								}
 						}
@@ -270,7 +270,7 @@ function GetLastweek(){
 									//console.log(completed_date)
 									var newdate = Date.parse(completed_date);
 									if(newdate.between(week_before,last_saturday)){
-										$('#lastweekul').append('<li class="task_main" name="lastweek_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" src="/images/delete.png" /></li>');
+										$('#lastweekul').append('<li class="task_main" name="lastweek_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" id="'+items[i].id+'" src="/images/delete.png" /></li>');
 									}
 								}
 						}
@@ -313,7 +313,7 @@ function GetThismonth(){
 									//console.log(completed_date)
 									var newdate = Date.parse(completed_date);
 									if(newdate.between(month_start,week_today)){
-										$('#thismonthul').append('<li class="task_main" name="thismonth_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" src="/images/delete.png" /></li>');
+										$('#thismonthul').append('<li class="task_main" name="thismonth_list" id="'+items[i].id+'">'+items[i].title+'<img name="delete" class="right action" id="'+items[i].id+'" src="/images/delete.png" /></li>');
 									}
 								}
 						}
