@@ -368,7 +368,7 @@ function GetProfile(){
 		$('#gravater').empty();
 		$('#welcome').empty();
 		$('#gravatar').append("<img src='"+gravatar_url+"' />");
-		$('#welcome').append("<p>Welecome"+username+".<br />Nice to see you again.</p><p><a href='#' id='logout'>Logout</a>")
+		$('#welcome').append("<p>Welecome&nbsp&nbsp&nbsp&nbsp"+username+".<br />Nice to see you again.</p><p><a href='#' id='logout'>Logout</a>")
 		$('#logout').click(function(){
 			localStorage.clear();
 			console.log(localStorage.user_token)
