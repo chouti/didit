@@ -76,6 +76,8 @@ function CheckToken(){
 function ClearInput(){
 	$('input[name="did_title"]').focus(function(){
 		$(this).attr('value', "");
+		$('.counter').empty();
+		$("form input").counter();
 	});
 }
 
@@ -414,8 +416,47 @@ function DelTask(task_id){
 	});
 }
 
+/* Word counter*/
+jQuery.fn.counter = function() {
+  $(this).each(function() {
+	var max = $(this).attr('maxlength');
+	var val = $(this).attr('value');
+	var cur = 0;
+	if(val) // value="", or no value at all will cause an error
+	  cur = val.length;
+	var left = max-cur;
+	$('.counter').remove();
+	$(this).after("<section class='counter'>"
+	  + left.toString()+"&nbspcharacters left.</section>");
+	// You can use something like this to align the
+	// counter to the right of the input field.
+	var c = $(this).next('.counter');
+	c.width(542);
+	c.css("position","relative");
+	c.css("text-align","right");
+	//c.css("top",-$(this).height()-8);
+	//c.css("left",$(this).width()+8);
 
+	$(this).keyup(function(i) {
+	  var max = $(this).attr('maxlength');
+	  var val = $(this).attr('value');
+	  var cur = 0;
+	  if(val)
+		cur = val.length;
+	  var left = max-cur;
+	  $(this).next(".counter").text(left.toString()+" characters left.");
+	  return this;
+	});
+  });
+  return this;
+}
+
+
+/*===================================
+	Final
+===================================*/
 $(document).ready(function(){
+	$("form input").counter();
 	CheckToken();
 	ClearInput();
 	TurnGreen();
