@@ -150,7 +150,7 @@ function GetToday(){
 			}
 		}
 		if ($('li[name="today_list"]').length==0){
-			$('#todayul').append('<p class="center">No archivements for today</p>');
+			$('#todayul').append('<p class="center">No achievements for today</p>');
 		}
 	});
 }
@@ -192,7 +192,7 @@ function GetYesterday(){
 			}
 		}
 		if ($('li[name="yesterday_list"]').length==0){
-			$('#yesterdayul').append('<p class="center">No archivements for yesterday</p>');
+			$('#yesterdayul').append('<p class="center">No achievements for yesterday</p>');
 		}
 	});
 }
@@ -235,7 +235,7 @@ function GetThisweek(){
 			}
 		}
 		if ($('li[name="thisweek_list"]').length==0){
-			$('#thisweekul').append('<p class="center">No archivements for this week</p>');
+			$('#thisweekul').append('<p class="center">No achievements for this week</p>');
 		}
 	});
 }
@@ -278,7 +278,7 @@ function GetLastweek(){
 			}
 		}
 		if ($('li[name="lastweek_list"]').length==0){
-			$('#lastweekul').append('<p class="center">No archivements for last week</p>');
+			$('#lastweekul').append('<p class="center">No achievements for last week</p>');
 		}
 	});
 }
@@ -321,7 +321,7 @@ function GetThismonth(){
 			}
 		}
 		if ($('li[name="thismonth_list"]').length==0){
-			$('#thismonthul').append('<p class="center">No archivements for this month</p>');
+			$('#thismonthul').append('<p class="center">No achievements for this month</p>');
 		}
 	});
 }
