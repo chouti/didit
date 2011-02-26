@@ -116,6 +116,14 @@ ul.sidenav li a {
 	border-top: 1px solid #FF4D4D;
 }
 
+ul.sidenav li:last-child a{
+	border-bottom: none;
+}
+
+ul.sidenav li:first-child a{
+	border-top: none;
+}
+
 ul.sidenav li {
 	margin: 0 1em;
 }
