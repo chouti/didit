@@ -45,8 +45,11 @@ function GetAuth(){
 								$('#intro-up').hide();
 								$('#intro-down').hide();
 								$('#container').show();
-								ShowToday();
+								$('#slogan').fadeIn('fast',function(){
+									$('#logo').css('float','left');
+								});
 								GetProfile();
+								ShowToday();
 							})
 						}
 				});
@@ -63,11 +66,17 @@ function CheckToken(){
 		$('#intro-up').show();
 		$('#intro-down').show();
 		$('#container').hide();
+		$('#slogan').fadeOut('fast',function(){
+			$('#logo').css('float','none');
+		});
 	} else {
 		$('#intro').hide();
 		$('#intro-up').hide();
 		$('#intro-down').hide();
-		$('#container').show();
+		$('#slogan').show();
+		$('#slogan').fadeIn('fast',function(){
+			$('#logo').css('float','left');
+		});
 		GetProfile();
 	}
 }
