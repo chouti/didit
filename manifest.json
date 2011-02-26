@@ -1,7 +1,7 @@
 {
 	"name": "Did it",
 	"description": "Did it is a simple web application, you can use it to log what you've done during the day. Did it was build based on Doit.im service",
-	"version":"0.0.9",
+	"version":"0.1.0",
 	"app":{
 		"launch":{
 			"local_path":"didit.html"
