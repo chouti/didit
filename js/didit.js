@@ -378,7 +378,8 @@ function GetProfile(){
 		$('#welcome').append("<p>Welecome&nbsp&nbsp&nbsp&nbsp"+username+".<br />Nice to see you again.</p><p><a href='#' id='logout'>Logout</a>")
 		$('#logout').click(function(){
 			localStorage.clear();
-			console.log(localStorage.user_token)
+			$('#profile').empty();
+			//console.log(localStorage.user_token)
 			CheckToken();
 		});
 	})
