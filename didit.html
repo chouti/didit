@@ -14,61 +14,68 @@
 		<script src="js/a.js" type="text/javascript" charset="utf-8"></script>
 		<link href='http://fonts.googleapis.com/css?family=Kreon:light,regular,bold' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-			<section id="header">
-				<section id="title">
+			<div id="header">
+				<div id="logo" class="left">
+					<div id="font">
+						<h1>Did it</h1>
+					</div>
+				</div>
+				<div id="slogan">
 					<h1>What did you do today?</h1>
-				</section>
-			</section>
-			<section id="intro">
-				<section id="intro-up">
+				</div>
+			</div>
+
+			<div id="intro">
+				<div id="intro-up">
 					<img src="/images/dummy.png" alt="">
-				</section>
-				<section id="intro-down">
+				</div>
+				<div id="intro-down">
 					<p class="about">Did it is a Google Chrome Web application. You can use this application to log your daily achievements.<br>
 						You can review those items in different date ranges.</p>
 					<p class="about">To use "Did it", you need to <a id="auth_login" href="#">login your Doit.im account</a> first. || Don't have Doit.im account yet? You can <a href="https://i.doit.im/register&source=4d565f90194f9970e50000ba" target="_blank">register one here</a></p>
-				</section>
-			</section>
-		<section id="container">
-			<section class="content">
-				<section class="main">
-					<section id="input">
+				</div>
+			</div>
+		<div id="container">
+			<div class="content">
+				<div class="main">
+					<div id="input">
 						<form action="" method="post" id="new_task" name="new_task" accept-charset="utf-8">
 							<input type="text" id="add_task" name="did_title" value="What did you do today? (press Enter to add)" maxlength="255" />
 						</form>
-					</section>
-					<section id="tasks">
-						<section id="today">
-							<section id="today_head"></section>
+					</div>
+					<div id="tasks">
+						<div id="today">
+							<div id="today_head"></div>
 							<ul id="todayul"></ul>
-						</section>
-						<section id="yesterday">
-							<section id="yesterday_head"></section>
+						</div>
+						<div id="yesterday">
+							<div id="yesterday_head"></div>
 							<ul id="yesterdayul"></ul>
-						</section>
-						<section id="thisweek">
-							<section id="thisweek_head"></section>
+						</div>
+						<div id="thisweek">
+							<div id="thisweek_head"></div>
 							<ul id="thisweekul"></ul>
-						</section>
-						<section id="lastweek">
-							<section id="lastweek_head"></section>
+						</div>
+						<div id="lastweek">
+							<div id="lastweek_head"></div>
 							<ul id="lastweekul"></ul>
-						</section>
-						<section id="thismonth">
-							<section id="thismonth_head"></section>
+						</div>
+						<div id="thismonth">
+							<div id="thismonth_head"></div>
 							<ul id="thismonthul"></ul>
-						</section>
-					</section>
-				</section>
-				<section class="secondary">
-					<section id="profile">
-						<section id="gravatar" class="left"></section>
-						<section id="welcome" class="right">
+						</div>
+					</div>
+				</div>
+				<div class="secondary">
+					<div id="profile">
+						<div id="gravatar" class="left"></div>
+						<div id="welcome" class="right">
 							
-						</section>
-					</section>
+						</div>
+					</div>
 					<ul class="sidenav">
 						<li id="nav1" onclick="trackLi(t)" class="selected"><a href="#">Today</a></li>
 						<li id="nav2" onclick="trackLi(y)" class="not_selected"><a href="#">Yesterday</a></li>
@@ -76,11 +83,11 @@
 						<li id="nav4" onclick="trackLi(lw)" class="not_selected"><a href="#">Last Week</a></li>
 						<li id="nav5" onclick="trackLi(tm)" class="not_selected"><a href="#">This Month</a></li>
 					</ul>
-				</section>
-			</section>
-		</section>
-		<section id="footer">
+				</div>
+			</div>
+		</div>
+		<div id="footer">
 			
-		</section>
+		</div>
 	</body>
 </html>
