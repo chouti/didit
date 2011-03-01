@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/date.js" type="text/javascript"></script>
+<script>
+/* This function for Omnibox add tasks.*/
+
+var addHeaders = function(token){
+	var token=localStorage.user_token;
+	return "OAuth "+token;
+}
+
+var today= new Date.today().toString("yyyy-MM-dd");
+
+chrome.omnibox.onInputEntered.addListener(
+  function(text) {
+    console.log('inputEntered: ' + text);
+    if(localStorage.user_token==undefined){
+    	alert('Please login your Doit.im account first.');
+    	chrome.tabs.create({
+    		url: chrome.extension.getURL('didit.html'),
+    		selected: true
+    	});
+    } else {
+		$.ajaxSetup({
+			dataType: 'json',
+			beforeSend: function(req){
+				req.setRequestHeader('Authorization', addHeaders())
+			},
+			contentType: "application/json; charset=utf-8"
+		});
+		var title = text;
+		var task_url = 'https://openapi.doit.im/v1/tasks';
+		task_data = JSON.stringify({'title':title,'start_at':today,'completed':today,'tags':['didit']});
+		$.post(task_url,task_data,function(){
+			var notification = webkitNotifications.createNotification(
+      			'images/icon_32.png',                      // The image.
+      			'Task sucessfully added', // The title.
+      			"Congratulations, you've finished "+text+" at "+today    // The body.
+    		);
+    		notification.show();
+  			});
+	}
+  });
+</script>
+</head>
+<body>
+</body>
+</html>
