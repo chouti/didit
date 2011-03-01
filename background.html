@@ -33,7 +33,14 @@ chrome.omnibox.onInputEntered.addListener(
 		var title = text;
 		var task_url = 'https://openapi.doit.im/v1/tasks';
 		task_data = JSON.stringify({'title':title,'start_at':today,'completed':today,'tags':['didit']});
-		$.post(task_url,task_data);
+		$.post(task_url,task_data,function(){
+			var notification = webkitNotifications.createNotification(
+      			'images/icon_32.png',                      // The image.
+      			'Task sucessfully added', // The title.
+      			"Congratulations, you've finished "+text+" at "+today    // The body.
+    		);
+    		notification.show();
+  			});
 	}
   });
 </script>
