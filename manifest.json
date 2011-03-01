@@ -18,6 +18,7 @@
 	"background_page": "background.html",
 	"permissions":[
 		"tabs",
+		"notifications",
 		"https://*.doit.im/",
 		"http://*.doit.im"
 	]
