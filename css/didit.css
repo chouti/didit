@@ -95,6 +95,7 @@ body {
 	font-family: 'Ubuntu', arial, serif;
 	margin-left: 10px;
 	-webkit-box-shadow: 5px 0 15px #000;
+	
 }
 
 ul.sidenav {
@@ -118,6 +119,7 @@ ul.sidenav li a {
 	padding: 5px 5px 5px 15px;
 	border-bottom: 1px solid #FBF3E0;
 	border-top: 1px solid #CDB09A;
+	font-family: 'Ubuntu',arial,serif;
 }
 
 ul.sidenav li:last-child a{
