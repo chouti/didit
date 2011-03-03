@@ -8,7 +8,7 @@
 ==========================*/
 
 body {
-	background: #3C3935 url(/images/bg.gif) repeat;
+	background: #3C3935 url(/images/bg.jpg) repeat;
 }
 
 #logo {
@@ -87,12 +87,14 @@ body {
 .main {
 	background: #FBF3E0;
 	font-family: 'Ubuntu', arial, serif;
+	-webkit-box-shadow: 5px 0 15px #000;
 }
 
 .secondary {
 	background:	#3C3935;
 	font-family: 'Ubuntu', arial, serif;
 	margin-left: 10px;
+	-webkit-box-shadow: 5px 0 15px #000;
 }
 
 ul.sidenav {
@@ -101,20 +103,21 @@ ul.sidenav {
 	padding: 0;
 	list-style: none;
 	font-family: 'Ubuntu',arial,serif;
-	background: #CA0700;
-	border-bottom: 1px solid #5C1E1B;
-	border-top: 1px solid #FF4D4D;
+	background: #CDB09A;
+	border-bottom: 1px solid #FBF3E0;
+	border-top: 1px solid #CDB09A;
+
 }
 
 ul.sidenav li a {
 	display: block;
-	color: #fff;
+	color: #000;
 	text-decoration: none;
 	text-align: left;
 	width: auto;
 	padding: 5px 5px 5px 15px;
-	border-bottom: 1px solid #5C1E1B;
-	border-top: 1px solid #FF4D4D;
+	border-bottom: 1px solid #FBF3E0;
+	border-top: 1px solid #CDB09A;
 }
 
 ul.sidenav li:last-child a{
