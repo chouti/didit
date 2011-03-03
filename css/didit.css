@@ -176,7 +176,6 @@ li.not_selected a {
 
 #tasks li {
 	margin: 0;
-	height: 50px;
 	font-family: 'Ubuntu', arial, serif;
 	list-style:none;
 	border-bottom: 1px dashed #999;
