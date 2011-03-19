@@ -23,4 +23,5 @@ body {
 #list,#calendar,#graph{height: 300px;}
 #review .left{position:relative;float:left; text-align:left;}
 #review .right{position: relative; float:right; text-align:right;}
-.intro img{margin-top:40px;}
+.screenshot{margin-top:40px;}
+.hr{margin-top:50px;margin-bottom:40px;}
