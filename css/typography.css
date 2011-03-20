@@ -6,3 +6,7 @@
 @font-face { font-family: 'Ubuntu Italic'; src: url(/images/fonts/Ubuntu-Italic.ttf);}
 @font-face { font-family: 'Ubuntu Bold'; src: url(/images/fonts/Ubuntu-Bold.ttf);}
 @font-face { font-family: 'Ubuntu BoldItalic'; src: url(/images/fonts/Ubuntu-BoldItalic.ttf);}
+
+#typography h1{ font-family:'Dancing Script'; color: #fff; font-size: 2.5em; line-height: 2em;text-shadow: 0px 2px 3px #000;}
+.intro h2{font-family:'Kreon Bold'; font-size: 2em; line-height: 1.5em; color: #fff; text-shadow: -1px -1px -1px #000;margin:0px;}
+.content{font-family:'Ubuntu'; font-size: 16px; line-height: 1.5em; color: #fff;}
