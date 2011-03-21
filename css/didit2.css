@@ -17,7 +17,7 @@ body {
 #typography{width:100px; height:62px; margin:0 auto;border:1px dashed #fff;border-top:none;}
 #header_menu {width:500px;position:relative;float:right;}
 #header_menu li{list-style:none;position:relative;float:left;}
-#header_menu .select{background: url(/images/menu.png) no-repeat; width:76px; height:115px;}
+#header_menu .select{background: url(/images/menu.png) no-repeat; width:76px; height:115px;text-shadow: 0px 1px 0px #ccc;}
 .menu_item{margin-top: 30px;}
 
 #wrap{width:100%;height:auto;}
