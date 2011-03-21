@@ -11,3 +11,6 @@
 #header_menu li a{font-family:'Ubuntu';font-size: 16px;color:#fff;}
 .intro h2{font-family:'Kreon Bold'; font-size: 2em; line-height: 1.5em; color: #fff; text-shadow: -1px -1px -1px #000;margin:0px;}
 .content{font-family:'Ubuntu'; font-size: 16px; line-height: 1.5em; color: #fff; padding: 5px;}
+#login_field {font-family:'Ubuntu';font-size:13px;color:#fff;}
+#login_field a{font-family:'Ubuntu';font-size:13px;color:#fff;text-decoration: underline;}
+#login_field a:hover{font-family:'Ubuntu';font-size:13px;color:#fff;text-decoration:none;text-shadow:0px 1px 0px #ccc;}
