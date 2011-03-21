@@ -21,6 +21,8 @@ body {
 .menu_item{margin-top: 30px;}
 
 #wrap{width:100%;height:auto;}
+
+/*About part*/
 #review{width:960px;margin:0 auto;background:rgba(0, 0, 0, 0.4);padding: 20px;
 	-webkit-border-radius:15px;
 	-webkit-box-shadow: 1px 2px 5px #000;}
@@ -33,3 +35,8 @@ body {
 #calendar_title{text-align: right;}
 .screenshot{margin-top:1em;}
 .hr{margin-top:50px;margin-bottom:40px;}
+
+/*Task List part*/
+#list{width:960px;margin:0 auto; background:#E1E8D9;padding:20px;
+		-webkit-border-radius:15px;
+		-webkit-box-shadow: 1px 2px 5px #000;}
