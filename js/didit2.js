@@ -75,10 +75,22 @@ function SayHello(){
 	})
 }
 
+/*Switch with Menu*/
+function NavMenu(){
+	$('.menu_item').click();
+}
 
 
 $(document).ready(function() {
 	FirstSelect();
 	SignIn();
 	/*Render different views*/
+	var view_type = $('li[class="select"]').attr("id");
+	switch(view_type){
+		case "nav_home":
+		$('#list_view').show();
+		$('#calendar_view').hide();
+		$('#graph_view').hide();
+		break
+	}
 });
