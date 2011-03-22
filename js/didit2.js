@@ -62,7 +62,10 @@ $.ajaxSetup({
 /*SayHello to our user*/
 function SayHello(){
 	$.getJSON(setting_url, function(data){
-		$('#user_panel').append("Hello "+data.account+"! Not you? "+"<a herf='#' id='signout'>Sign Out</a>");
+		/*Get Gravatar Image*/
+		gravatar_hash=MD5(data.username);
+		/*Say Hello*/
+		$('#user_panel').append("<img src='http://www.gravatar.com/avatar/"+gravatar_hash+"?s=24' class='gravatar'>"+"Hello "+data.account+"! Not you? "+"<a herf='#' id='signout'>Sign Out</a>");
 		/*Add Sign Out function block*/
 		$('#signout').click(function(){
 			localStorage.clear();
