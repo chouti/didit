@@ -44,7 +44,34 @@ function SignIn(){
 	}
 }
 
+/*Make Ajax Base Setting*/
+var task_url='https://openapi.doit.im/v1/tasks'
+var setting_url='https://openapi.doit.im/v1/settings'
+var addHeaders=function(token){
+	var token = localStorage.user_token
+	return "OAuth "+token;
+}
+$.ajaxSetup({
+	beforeSend: function(req){
+		req.setRequestHeader('Authorization', addHeaders())
+	},
+	dataType:'json',
+	contentType: "application/json; charset=utf-8"	
+});
+
+/*SayHello to our user*/
+function SayHello(){
+	$.getJSON(setting_url, function(data){
+		$('#user_panel').append("Hello "+data.account+"! Not you? "+"<a herf='#'>Sign Out</a>");
+	})
+}
+
+
+
+
+
 $(document).ready(function() {
 	FirstSelect();
 	SignIn();
+	SayHello();
 });
