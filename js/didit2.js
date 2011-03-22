@@ -1,11 +1,11 @@
 function FirstSelect(){
 	if(localStorage.user_token==undefined){
-		$('li[id~="nav_"]').attr('class','not_select');
+		$('li[class="select"]').attr('class','not_select');
 		$('#nav_about').attr('class','select');
 		$('#review').show();
 		$('#task_list').hide();
 	} else {
-		$('li[id~="nav_"]').attr('class','not_select');
+		$('li[class="select"]').attr('class','not_select');
 		$('#nav_home').attr('class','select');
 		$('#review').hide();
 		$('#task_list').show();
@@ -34,7 +34,7 @@ function SignIn(){
 							chrome.tabs.remove(tab.id,function(){
 								$('#review').hide();
 								$('#task_list').show();
-								$('li[id~="nav_"]').attr('class','not_select');
+								$('li[class="select"]').attr('class','not_select');
 								$('#nav_home').attr('class','select');
 							});
 						}
@@ -62,7 +62,12 @@ $.ajaxSetup({
 /*SayHello to our user*/
 function SayHello(){
 	$.getJSON(setting_url, function(data){
-		$('#user_panel').append("Hello "+data.account+"! Not you? "+"<a herf='#'>Sign Out</a>");
+		$('#user_panel').append("Hello "+data.account+"! Not you? "+"<a herf='#' id='signout'>Sign Out</a>");
+		/*Add Sign Out function block*/
+		$('#signout').click(function(){
+			localStorage.clear();
+			FirstSelect();
+		});
 	})
 }
 
