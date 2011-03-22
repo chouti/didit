@@ -40,3 +40,5 @@ body {
 #task_list{width:960px;margin:0 auto; background:#E1E8D9;padding:20px;
 		-webkit-border-radius:15px;
 		-webkit-box-shadow: 1px 2px 5px #000;}
+#user_panel{width:100%;}
+.gravatar{border:1px solid #fff;margin-right:5px;}
