@@ -1,10 +1,12 @@
 function FirstSelect(){
 	if(localStorage.user_token==undefined){
-		$('#nav_about').removeClass('not_select').addClass('select');
+		$('li[id~="nav_"]').attr('class','not_select');
+		$('#nav_about').attr('class','select');
 		$('#review').show();
 		$('#task_list').hide();
 	} else {
-		$('#nav_home').removeClass('not_select').addClass('select')
+		$('li[id~="nav_"]').attr('class','not_select');
+		$('#nav_home').attr('class','select');
 		$('#review').hide();
 		$('#task_list').show();
 	}
@@ -32,8 +34,8 @@ function SignIn(){
 							chrome.tabs.remove(tab.id,function(){
 								$('#review').hide();
 								$('#task_list').show();
-								$('#nav_home').removeClass('not_select').addClass('select');
-								$('#nav_about').removeClass('select').addClass('not_select');
+								$('li[id~="nav_"]').attr('class','not_select');
+								$('#nav_home').attr('class','select');
 							});
 						}
 				});
