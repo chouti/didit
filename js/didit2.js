@@ -76,10 +76,9 @@ function SayHello(){
 
 
 
-
-
 $(document).ready(function() {
 	FirstSelect();
 	SignIn();
 	SayHello();
+	/*Render different views*/
 });

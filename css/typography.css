@@ -15,3 +15,4 @@
 #login_field a{font-family:'Ubuntu';font-size:13px;color:#fff;text-decoration: underline;}
 #login_field a:hover{font-family:'Ubuntu';font-size:13px;color:#fff;text-decoration:none;text-shadow:0px 1px 0px #ccc;}
 #user_panel{font-family:'Ubuntu'; font-size:13px;text-align:right;}
+#task_container{font-family:'Ubuntu'; font-size: 16px; text-align:left;}
