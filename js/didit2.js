@@ -5,10 +5,13 @@ function FirstSelect(){
 		$('#review').show();
 		$('#task_list').hide();
 	} else {
-		$('li[class="select"]').attr('class','not_select');
-		$('#nav_home').attr('class','select');
-		$('#review').hide();
-		$('#task_list').show();
+			$('li[class="select"]').attr('class','not_select');
+			$('#nav_home').attr('class','select');
+			$('#task_list').show();
+			$('#review').hide();
+			$('#list_view').show();
+			$('#calendar_view').hide();
+			$('#graph_view').hide();
 	}
 }
 
@@ -80,21 +83,55 @@ function NavMenu(){
 	$('li[id^="nav_"]').click(function(){
 		$('li[class="select"]').attr('class','not_select');
 		$(this).attr('class','select');
-	});
-}
-
-
-$(document).ready(function() {
-	FirstSelect();
-	SignIn();
-	NavMenu();
 	/*Render different views*/
 	var view_type = $('li[class="select"]').attr("id");
 	switch(view_type){
 		case "nav_home":
-		$('#list_view').show();
-		$('#calendar_view').hide();
-		$('#graph_view').hide();
-		break
+			$('#task_list').show();
+			$('#review').hide();
+			$('#list_view').show();
+			$('#calendar_view').hide();
+			$('#graph_view').hide();
+			break
+		case "nav_calendar":
+			$('#task_list').show();
+			$('#review').hide();
+			$('#list_view').hide();
+			$('#calendar_view').show();
+			$('#graph_view').hide();
+			break
+		case "nav_graphic":
+			$('#task_list').show();
+			$('#review').hide();
+			$('#list_view').hide();
+			$('#calendar_view').hide();
+			$('#graph_view').show();
+			break
+		case "nav_about":
+			$('#task_list').hide();
+			$('#review').show();
+			break
+		default:
+			$('#task_list').show();
+			$('#review').hide();
+			$('#list_view').show();
+			$('#calendar_view').hide();
+			$('#graph_view').hide();
 	}
+	});
+}
+
+/*Get all Tasks*/
+function GetTasks(){
+	$.getJSON(task_url,function(data){
+		console.log(data);
+	});
+}
+
+/*Final load*/
+$(document).ready(function() {
+	FirstSelect();
+	SignIn();
+	NavMenu();
+	GetTasks();
 });
