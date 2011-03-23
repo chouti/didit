@@ -77,13 +77,17 @@ function SayHello(){
 
 /*Switch with Menu*/
 function NavMenu(){
-	$('.menu_item').click();
+	$('li[id^="nav_"]').click(function(){
+		$('li[class="select"]').attr('class','not_select');
+		$(this).attr('class','select');
+	});
 }
 
 
 $(document).ready(function() {
 	FirstSelect();
 	SignIn();
+	NavMenu();
 	/*Render different views*/
 	var view_type = $('li[class="select"]').attr("id");
 	switch(view_type){
