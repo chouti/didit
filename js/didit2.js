@@ -139,10 +139,12 @@ function GetTasks(){
 
 /*Render List view*/
 function ListView(){
-	for(i=0; i<task_array.length; i++){
-		$('#task_column').append('<p>'+task_array[i].title+'</p>');
+	var completed_array = new Array();
+	for(i=0;i<task_array.length;i++){
+		var completed_date=Date.parse(task_array[i].completed);
+		completed_array.push(completed_date);
 	}
-	$('#task_column').jPaginate({items: 7});
+		console.log(completed_array);
 }
 
 
@@ -152,9 +154,4 @@ $(document).ready(function() {
 	SignIn();
 	NavMenu();
 	GetTasks();
-	console.log(task_array.length);
-	for(i=0; i<task_array.length; i++){
-		$('#task_column').append('<p>'+task_array[i].title+'</p>');
-	}
-	$('#task_column').jPaginate();
 });

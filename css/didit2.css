@@ -37,7 +37,7 @@ body {
 .hr{margin-top:50px;margin-bottom:40px;}
 
 /*Task List part*/
-#task_list{width:960px;margin:0 auto; background:#E1E8D9;padding:20px;
+#task_list{width:960px;margin:0 auto; background:#E1E8D9;padding:20px;float:none;
 		-webkit-border-radius:15px;
 		-webkit-box-shadow: 1px 2px 5px #000;}
 #user_panel{width:100%;}
@@ -47,4 +47,4 @@ body {
 .pagination li {float: left; margin: 3px;}
 .pagination li a { display: block; padding: 3px 5px; color: #fff; background: #AB232D; text-decoration: none; }
 .pagination li a.active{ border: 1px solid #000; color: #000; background: #fff; }
-.pagination li a inactive { background: #eee; color: #777; border: 1px solid #ccc;}
+.pagination li a.inactive { background: #eee; color: #777; border: 1px solid #ccc;}
