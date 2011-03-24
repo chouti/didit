@@ -1,3 +1,5 @@
+var task_array = new Array();
+
 function FirstSelect(){
 	if(localStorage.user_token==undefined){
 		$('li[class="select"]').attr('class','not_select');
@@ -124,9 +126,17 @@ function NavMenu(){
 /*Get all Tasks*/
 function GetTasks(){
 	$.getJSON(task_url,function(data){
-		console.log(data);
+		var items = data.entries;
+		for(i=0; i< items.length; i++){
+			if(items[i].completed!=null&&
+				items[i].trashed==null){
+				task_array.push(items[i]);
+			}
+		}
 	});
 }
+
+/*Render List view*/
 
 /*Final load*/
 $(document).ready(function() {
