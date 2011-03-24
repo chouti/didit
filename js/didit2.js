@@ -133,10 +133,18 @@ function GetTasks(){
 				task_array.push(items[i]);
 			}
 		}
+		ListView();
 	});
 }
 
 /*Render List view*/
+function ListView(){
+	for(i=0; i<task_array.length; i++){
+		$('#task_column').append('<p>'+task_array[i].title+'</p>');
+	}
+	$('#task_column').jPaginate({items: 7});
+}
+
 
 /*Final load*/
 $(document).ready(function() {
@@ -144,4 +152,9 @@ $(document).ready(function() {
 	SignIn();
 	NavMenu();
 	GetTasks();
+	console.log(task_array.length);
+	for(i=0; i<task_array.length; i++){
+		$('#task_column').append('<p>'+task_array[i].title+'</p>');
+	}
+	$('#task_column').jPaginate();
 });
