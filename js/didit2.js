@@ -140,15 +140,19 @@ function GetTasks(){
 /*Render List view*/
 function ListView(){
 	var completed_array = new Array();
-	for(i=0;i<task_array.length;i++){
+	var title_array = new Array();
+	for(var i=0; i<task_array.length; i++){
 		var completed_date=Date.parse(task_array[i].completed.split(' ')[0]);
+		var title=task_array[i].title;
 		completed_array.push(completed_date);
+		title_array.push(title);
 	}
 	console.log(completed_array);
-	for (c=0; c<completed_array.length; c++){
-		
+	for (var c=completed_array.length-1; c>=0; c--){
+		$('#task_area').append('<div id="date_column"><div id="month_area">'+(completed_array[c].getMonth()+1)+'</div><div id="date_area">'+completed_array[c].getDate()+'</div></div><div id="task_column">'+title_array[c]+'</div>');
 	}
-	
+	$('#list_view').append('<div style="clear:both;"></div>');
+	$('#task_area').jPaginate({items: 14});
 }
 
 
