@@ -141,13 +141,14 @@ function GetTasks(){
 function ListView(){
 	var completed_array = new Array();
 	for(i=0;i<task_array.length;i++){
-		var completed_date=(task_array[i].completed).getDayOfYear();
+		var completed_date=Date.parse(task_array[i].completed.split(' ')[0]);
 		completed_array.push(completed_date);
 	}
-		console.log(completed_array);
-		for(c=0;c<completed_array.length;c++){
-			//if()
-		}
+	console.log(completed_array);
+	for (c=0; c<completed_array.length; c++){
+		
+	}
+	
 }
 
 
