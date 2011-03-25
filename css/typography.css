@@ -17,3 +17,6 @@
 #user_panel{font-family:'Ubuntu'; font-size:13px;text-align:right;}
 #task_container{font-family:'Ubuntu'; font-size: 16px; text-align:left;}
 .pagination li {font-family: 'Ubuntu';}
+#date_column{font-family:'Ubuntu';font-size:13px;text-align:center;}
+#task_column{font-family:'Ubuntu';font-size:16px;text-align:left;}
+#month_area{color:#fff;}
