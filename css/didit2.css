@@ -48,8 +48,8 @@ body {
 .pagination li a { display: block; padding: 3px 5px; color: #fff; background: #AB232D; text-decoration: none; }
 .pagination li a.active{ border: 1px solid #000; color: #000; background: #fff; }
 .pagination li a.inactive { background: #eee; color: #777; border: 1px solid #ccc;}
-#task_entry{width:100%;margin:5px;border-bottom:1px dashed #ccc;}
-#date_column{float: left;width:58px;border:1px solid #000;}
-#task_column{float: right;width:880px;line-height:2em;}
-#month_area{background:#AB232D;}
-#date_area{background:#fff;}
+.task_entry{width:100%;margin:5px;border-bottom:1px dashed #ccc;}
+.date_column{float: left;width:58px;border:1px solid #000;}
+.task_column{float: right;width:880px;line-height:80px;}
+.date_area{background:#AB232D;height:60px;}
+.week_area{background:#fff;height:20px;}

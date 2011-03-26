@@ -141,19 +141,36 @@ function GetTasks(){
 function ListView(){
 	var completed_array = new Array();
 	var title_array = new Array();
+	var date_title_array = new Array();
+	
 	for(var i=task_array.length-1; i>=0; i--){
-		var completed_date=Date.parse(task_array[i].completed.split(' ')[0]);
+		var completed_date=task_array[i].completed.split(' ')[0]
 		var title=task_array[i].title;
 		completed_array.push(completed_date);
 		title_array.push(title);
 	}
-	var sorted = completed_array.sort();
-	console.log(sorted)
+	var sorted = completed_array.sort().reverse();
 	for (var c=0; c<=sorted.length-1; c++){
-		var month = sorted[c].getMonth()+1
-		var date = sorted[c].getDate();
-		$('#task_area').append('<div id="task_entry"><div id="date_column"><div id="month_area">'+month+'</div><div id="date_area">'+date+'</div></div><div id="task_column">'+title_array[c]+'</div><div style="clear:both;"></div></div>');
+		var year = sorted[c].split('-')[0]
+		var month = sorted[c].split('-')[1]
+		var date = sorted[c].split('-')[2]
+		var day = Date.parse(sorted[c]).toString().split(' ')[0]
+		var date_title = year+'-'+month
+		date_title_array.push(date_title)
+		$('#task_area').append('<div class="task_entry"><div class="date_column"><div class="date_area">'+date+'</div><div class="week_area">'+day+'</div></div><div class="task_column">'+title_array[c]+'</div><div style="clear:both;"></div></div>');
 	}
+	/*
+		$('#task_area').prepend('<div id="date_title">'+date_title_array[0]+'</div>');
+		for(var d=1; d<date_title_array.length; c++){
+			if(date_title_array[d]!=date_title_array[d-1]){
+				$
+			}
+	
+	}
+	*/
+	
+	
+	
 	$('#list_view').append('<div style="clear:both;"></div>');
 	$('#task_area').append('<div style="clear:both;"></div>');
 	$('#task_area').jPaginate({items: 10});
