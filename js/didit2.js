@@ -174,6 +174,10 @@ function ListView(){
 	$('#task_area').jPaginate({items: 10});
 }
 
+/*Render Calendar View*/
+function CalendarView(){
+	$('#calendar_area').DatePicker();
+}
 
 /*Final load*/
 $(document).ready(function() {
