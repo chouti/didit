@@ -3,7 +3,7 @@
 	Brown:			#5D2123
 	Red:			#AB232D
 	Dust:			#C79E60
-	Light:			#E1E8E9
+	Light:			#FCFBF6
 ==================================================*/
 
 body {
@@ -37,12 +37,13 @@ body {
 .hr{margin-top:50px;margin-bottom:40px;}
 
 /*Task List part*/
-#task_list{width:960px;margin:0 auto; background:#E1E8D9;padding:20px;
+#task_list{width:960px;margin:0 auto; background:#fcfbf6;padding:20px;
 		-webkit-border-radius:15px;
 		/*-webkit-box-shadow: 1px 2px 5px #000;*/}
 #user_panel{width:100%;}
 .gravatar{border:1px solid #fff;margin-right:5px;}
 #control_panel{width:100%;position:relative;float:left;}
+#task_container{width:100%;position:relative;float:left;}
 .pagination{list-style:none; margin: 0px; padding: 0px;}
 .pagination li {float: left; margin: 3px;}
 .pagination li a { display: block; padding: 3px 5px; color: #fff; background: #AB232D; text-decoration: none; }
@@ -51,5 +52,6 @@ body {
 .task_entry{width:100%;margin:5px;border-bottom:1px dashed #ccc;}
 .date_column{float: left;width:58px;border:1px solid #000;}
 .task_column{float: right;width:880px;line-height:80px;}
-.date_area{background:#AB232D;height:50px;}
-.week_area{background:#fff;height:30px;}
+.date_area{background:#fff;height:50px;}
+.week_area{background:#AB232D;height:30px;}
+.date_title{background:#ccc;height:14px;}

@@ -162,7 +162,6 @@ function ListView(){
 		$('#task_area').append('<div class="task_entry" id="'+uuid_array[c]+'"><div class="date_column"><div class="date_area">'+date+'</div><div class="week_area">'+day+'</div></div><div class="task_column">'+title_array[c]+'</div><div style="clear:both;"></div></div>');
 	}
 	/*Add year and month before task_entry list*/
-	
 	$('#list_view').append('<div style="clear:both;"></div>');
 	$('#task_area').append('<div style="clear:both;"></div>');
 	$('#task_area').jPaginate({items: 10});
