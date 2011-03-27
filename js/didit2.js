@@ -134,6 +134,7 @@ function GetTasks(){
 			}
 		}
 		ListView();
+		GraphView();
 	});
 }
 
@@ -172,6 +173,11 @@ function ListView(){
 	$('#list_view').append('<div style="clear:both;"></div>');
 	$('#task_area').append('<div style="clear:both;"></div>');
 	$('#task_area').jPaginate({items: 10});
+}
+
+/*Render Graph View*/
+function GraphView(){
+	var r = Raphael(10,50,640,480);
 }
 
 
