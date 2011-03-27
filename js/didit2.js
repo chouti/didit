@@ -142,12 +142,14 @@ function ListView(){
 	var completed_array = new Array();
 	var title_array = new Array();
 	var date_title_array = new Array();
-	
+	var uuid_array = new Array();
 	for(var i=task_array.length-1; i>=0; i--){
 		var completed_date=task_array[i].completed.split(' ')[0]
 		var title=task_array[i].title;
+		var uuid=task_array[i].id;
 		completed_array.push(completed_date);
 		title_array.push(title);
+		uuid_array.push(uuid);
 	}
 	var sorted = completed_array.sort().reverse();
 	for (var c=0; c<=sorted.length-1; c++){
@@ -157,19 +159,9 @@ function ListView(){
 		var day = Date.parse(sorted[c]).toString().split(' ')[0]
 		var date_title = year+'-'+month
 		date_title_array.push(date_title)
-		$('#task_area').append('<div class="task_entry"><div class="date_column"><div class="date_area">'+date+'</div><div class="week_area">'+day+'</div></div><div class="task_column">'+title_array[c]+'</div><div style="clear:both;"></div></div>');
+		$('#task_area').append('<div class="task_entry" id="'+uuid_array[c]+'"><div class="date_column"><div class="date_area">'+date+'</div><div class="week_area">'+day+'</div></div><div class="task_column">'+title_array[c]+'</div><div style="clear:both;"></div></div>');
 	}
-	/*
-		$('#task_area').prepend('<div id="date_title">'+date_title_array[0]+'</div>');
-		for(var d=1; d<date_title_array.length; c++){
-			if(date_title_array[d]!=date_title_array[d-1]){
-				$
-			}
-	
-	}
-	*/
-	
-	
+	/*Add year and month before task_entry list*/
 	
 	$('#list_view').append('<div style="clear:both;"></div>');
 	$('#task_area').append('<div style="clear:both;"></div>');
