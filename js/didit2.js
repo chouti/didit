@@ -162,6 +162,13 @@ function ListView(){
 		$('#task_area').append('<div class="task_entry" id="'+uuid_array[c]+'"><div class="date_column"><div class="date_area">'+date+'</div><div class="week_area">'+day+'</div></div><div class="task_column">'+title_array[c]+'</div><div style="clear:both;"></div></div>');
 	}
 	/*Add year and month before task_entry list*/
+	$('.task_entry').first().prepend('<div class="date_title">'+date_title_array[0]+'</div>');
+	for(var d=1; d<date_title_array.length; d++){
+		if(date_title_array[d]!=date_title_array[d-1]){
+			$('div[id="'+uuid_array[d]+'"]').prepend('<div class="date_title">'+date_title_array[d]+'</div>');
+		}
+	}
+	/*Paginate part*/
 	$('#list_view').append('<div style="clear:both;"></div>');
 	$('#task_area').append('<div style="clear:both;"></div>');
 	$('#task_area').jPaginate({items: 10});
