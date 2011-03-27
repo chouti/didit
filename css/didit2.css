@@ -55,3 +55,8 @@ body {
 .date_area{background:#fff;height:50px;}
 .week_area{background:#AB232D;height:30px;}
 .date_title{background:#C79E60;height:20px;margin-bottom:5px;}
+
+/*Calendar Part*/
+#calendar_view{width:960px;height:auto;}
+#calendar_area{width:960px;height:auto;}
+.datepicker{width:960px; height:800px;}

@@ -134,6 +134,7 @@ function GetTasks(){
 			}
 		}
 		ListView();
+		CalendarView();
 	});
 }
 
@@ -176,7 +177,11 @@ function ListView(){
 
 /*Render Calendar View*/
 function CalendarView(){
-	$('#calendar_area').DatePicker();
+	$('#calendar_area').datePicker({
+		inline:true
+	});
+	$('#calendar_area').append('<div style="clear:both;"></div>');
+	$('#calendar_view').append('<div style="clear:both;"></div>');
 }
 
 /*Final load*/
