@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Didit | What did you do today?</title>
 		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jpaginate.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/date.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/easy.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
@@ -74,12 +75,19 @@
 				</div>
 			</div>
 			<div id="task_list">
-				<div id="control_panel">
-					
-				</div>
+				<div id="user_panel" class="right"></div>
+				<div id="control_panel"><p>Control_panel</p><div style="clear:both;"></div></div>
 				<div id="task_container">
-					
+					<div id="list_view" class="list"><div id="task_area"></div></div>
+					<div id="calendar_view" class="calendar">
+						<p>Calendar View</p>
+					</div>
+					<div id="graph_view" class="graph">
+						<p>Graphic View</p>
+					</div>
+					<div style="clear:both;"></div>
 				</div>
+				<div style="clear:both;"></div>
 			</div>
 		</div>
 	</body>

@@ -6,11 +6,20 @@
 @font-face { font-family: 'Ubuntu Italic'; src: url(/images/fonts/Ubuntu-Italic.ttf);}
 @font-face { font-family: 'Ubuntu Bold'; src: url(/images/fonts/Ubuntu-Bold.ttf);}
 @font-face { font-family: 'Ubuntu BoldItalic'; src: url(/images/fonts/Ubuntu-BoldItalic.ttf);}
+@font-face { font-family: 'Allerta Stencil'; src: url(/images/fonts/Allerta-Stencil.ttf);}
 
 #typography h1{ font-family:'Dancing Script'; color: #fff; font-size: 2.5em; line-height: 2em;text-shadow: 0px 2px 3px #000;}
-#header_menu li a{font-family:'Ubuntu';font-size: 16px;color:#fff;}
+#header_menu li a{font-family:'Ubuntu';font-size: 14px;color:#fff;}
 .intro h2{font-family:'Kreon Bold'; font-size: 2em; line-height: 1.5em; color: #fff; text-shadow: -1px -1px -1px #000;margin:0px;}
 .content{font-family:'Ubuntu'; font-size: 16px; line-height: 1.5em; color: #fff; padding: 5px;}
 #login_field {font-family:'Ubuntu';font-size:13px;color:#fff;}
 #login_field a{font-family:'Ubuntu';font-size:13px;color:#fff;text-decoration: underline;}
 #login_field a:hover{font-family:'Ubuntu';font-size:13px;color:#fff;text-decoration:none;text-shadow:0px 1px 0px #ccc;}
+#user_panel{font-family:'Ubuntu'; font-size:13px;text-align:right;}
+#task_container{font-family:'Ubuntu'; font-size: 16px; text-align:left;}
+.pagination li {font-family: 'Ubuntu';}
+.date_column{text-align:center;}
+.task_column{font-family:'Ubuntu';font-size:20px;text-align:left;}
+.date_area{color:#000;font-family:'Allerta Stencil';font-size:30px;line-height:60px;}
+.week_area{color:#fff;font-family:'Allerta Stencil';font-size:22px;line-height:35px;}
+.date_title{font-family:'Ubuntu';font-size:16px;text-align:center;color:#fff;line-height:20px;}
