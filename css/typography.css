@@ -9,7 +9,7 @@
 @font-face { font-family: 'Allerta Stencil'; src: url(/images/fonts/Allerta-Stencil.ttf);}
 
 #typography h1{ font-family:'Dancing Script'; color: #fff; font-size: 2.5em; line-height: 2em;text-shadow: 0px 2px 3px #000;}
-#header_menu li a{font-family:'Ubuntu';font-size: 14px;color:#fff;}
+#header_menu li a{font-family:'Ubuntu';font-size: 14px;color:#fff;text-decoration:none;}
 .intro h2{font-family:'Kreon Bold'; font-size: 2em; line-height: 1.5em; color: #fff; text-shadow: -1px -1px -1px #000;margin:0px;}
 .content{font-family:'Ubuntu'; font-size: 16px; line-height: 1.5em; color: #fff; padding: 5px;}
 #login_field {font-family:'Ubuntu';font-size:13px;color:#fff;}
