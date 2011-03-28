@@ -177,15 +177,6 @@ function ListView(){
 
 /*Render Calendar View*/
 function CalendarView(){
-	$('#calendar_area').DatePicker({
-		flat:true,
-		date:Date.today(),
-		current:Date.today(),
-		calendars:1,
-		starts:1
-	});
-	$('#calendar_area').append('<div style="clear:both;"></div>');
-	$('#calendar_view').append('<div style="clear:both;"></div>');
 }
 
 /*Final load*/
